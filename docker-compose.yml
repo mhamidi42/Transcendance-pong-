@@ -1,0 +1,24 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/nginx/dockerfile
+    ports:
+      - "8080:80"
+      - "4443:443"
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/fastify/dockerfile
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - backend-data:/app/db
+      - backend-uploads:/app/uploads
+
+volumes:
+  backend-data:
+  backend-uploads:

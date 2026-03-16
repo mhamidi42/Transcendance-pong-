@@ -1,0 +1,25 @@
+FROM node:20-bookworm
+
+RUN apt-get update && apt-get install -y sqlite3
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    sqlite3 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY backend/package*.json backend/tsconfig.json ./
+RUN npm install
+
+RUN npm install dotenv
+
+COPY backend/. .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]

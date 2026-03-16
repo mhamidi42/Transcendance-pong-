@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   BASE STYLES
+   ========================================= */
+@layer base {
+	body {
+		@apply font-sans bg-slate-900 text-slate-200 min-h-screen;
+	}
+
+	h1 {
+		@apply text-4xl font-bold mb-6;
+	}
+
+	h2 {
+		@apply text-2xl font-semibold mb-4;
+	}
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
+@layer components {
+
+	/* --- ICONS --- */
+	.material-symbols-outlined {
+		@apply font-normal text-2xl leading-none tracking-normal normal-case inline-block whitespace-nowrap;
+		font-family: 'Material Symbols Outlined';
+		-webkit-font-feature-settings: 'liga';
+		-webkit-font-smoothing: antialiased;
+		font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	}
+
+	/* --- LAYOUTS --- */
+	.page-container {
+		@apply flex flex-col items-center justify-start min-h-screen pt-20 pb-10 px-4;
+	}
+
+	.container-wide {
+		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+	}
+
+	/* --- CARDS --- */
+	.card {
+		@apply bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl p-8;
+	}
+
+	.card-glass {
+		@apply w-full max-w-sm bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl h-fit;
+	}
+
+	.glass-panel {
+		@apply bg-slate-800/50 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl;
+	}
+
+	.card-header {
+		@apply p-6 border-b border-white/10;
+	}
+
+	.card-body {
+		@apply p-6;
+	}
+
+	.card-footer {
+		@apply p-6 pt-0 flex flex-col gap-2;
+	}
+
+	/* --- TYPOGRAPHY --- */
+	.title-display {
+		@apply text-5xl font-thin tracking-tight text-white;
+	}
+
+	.text-muted {
+		@apply text-slate-400 text-sm;
+	}
+
+	.link-accent {
+		@apply text-sm text-blue-400 hover:underline transition-colors;
+	}
+
+	/* --- FORMS --- */
+	.form-group {
+		@apply grid gap-2;
+	}
+
+	.form-label {
+		@apply text-sm font-medium text-white;
+	}
+
+	.input-field {
+		@apply w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+	}
+
+	/* --- BUTTONS --- */
+	.btn {
+		@apply px-6 py-2.5 font-medium tracking-wide rounded-lg transition-all duration-300 transform active:scale-95 text-sm uppercase flex items-center justify-center gap-2 cursor-pointer border;
+	}
+
+	.btn-primary {
+		@apply bg-gradient-to-br from-blue-500 to-blue-600 text-white border-transparent hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
+	}
+
+	.btn-secondary {
+		@apply bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,_255,_255,_0.1)];
+	}
+
+	.btn-danger {
+		@apply bg-red-500/10 text-red-300 border-red-500/20 hover:bg-red-500/20 hover:border-red-500/40 hover:text-red-200;
+	}
+
+	.btn-ghost {
+		@apply bg-transparent border-transparent text-slate-400 hover:text-white hover:bg-white/5;
+	}
+
+	.btn-menu {
+		@apply w-full py-4 px-6 text-center text-gray-600 bg-white border-gray-200 rounded-full hover:border-gray-400 hover:text-gray-900 hover:shadow-lg hover:scale-[1.02] hover:bg-gray-50;
+	}
+
+	/* --- MODULES --- */
+
+	/* Popups */
+	.popup-overlay {
+		@apply fixed inset-0 bg-slate-950/40 backdrop-blur-lg flex items-center justify-center z-[1000];
+		animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.popup-overlay.hidden {
+		display: none;
+	}
+
+	.popup-top {
+		@apply items-start pt-32;
+	}
+
+	/* Settings */
+	.setting-input-color {
+		@apply w-[40px] h-[40px] p-0 appearance-none overflow-hidden cursor-pointer bg-slate-800 border-2 border-slate-600 rounded-full transition-all duration-300 ease-in-out;
+
+		@apply hover:border-white hover:scale-110 hover:shadow-[0_0_10px_rgba(255,_255,_255,_0.3)];
+
+		&::-webkit-color-swatch-wrapper {
+			@apply p-0;
+		}
+
+		&::-webkit-color-swatch {
+			@apply border-none rounded-full;
+		}
+
+		&::-moz-color-swatch {
+			@apply border-none rounded-full;
+		}
+	}
+
+	.setting-item {
+		@apply flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition;
+	}
+
+	.setting-group-grid {
+		@apply flex flex-col items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 transition;
+	}
+
+	.btn-key {
+		@apply px-4 py-2 bg-white/10 rounded border border-white/20 min-w-12;
+	}
+
+
+	/* Pong Game */
+	.pong-container {
+		@apply flex flex-col items-center gap-6;
+	}
+
+	.score {
+		@apply text-4xl font-bold tracking-[0.2em] text-white;
+	}
+
+	.app {
+		@apply p-8 max-w-[900px] mx-auto;
+	}
+
+	.header {
+		@apply flex justify-between items-center p-4 px-8 bg-slate-950 border-b border-slate-800;
+	}
+
+	.nav {
+		@apply flex items-center gap-4;
+	}
+
+	.nav a {
+		@apply text-slate-300 no-underline font-medium transition-colors hover:text-blue-400;
+	}
+
+	.pong-field {
+		@apply relative w-[700px] h-[400px] bg-slate-950 border-2 border-cyan-400 rounded-xl overflow-hidden;
+	}
+
+	.net {
+		@apply absolute left-1/2 top-0 w-1 h-full -translate-x-1/2 opacity-60;
+		background: repeating-linear-gradient(to bottom,
+				#38bdf8,
+				#38bdf8 10px,
+				transparent 10px,
+				transparent 20px);
+	}
+
+	.paddle {
+		@apply absolute w-3 h-20 bg-gray-200 rounded top-0;
+	}
+
+	.paddle-left {
+		@apply left-5;
+	}
+
+	.paddle-right {
+		@apply right-5;
+	}
+
+	.ball {
+		@apply absolute w-[14px] h-[14px] bg-cyan-400 rounded-full left-1/2 top-1/2;
+	}
+
+	/* --- FRIENDS PAGE --- */
+	.friends-page {
+		@apply page-container;
+	}
+
+	.add-friend {
+		@apply w-full max-w-md mx-auto mb-8 flex gap-2 flex-col;
+	}
+
+	.add-friend input {
+		@apply input-field;
+	}
+
+	.add-friend button {
+		@apply btn btn-primary;
+	}
+
+	.add-friend span {
+		@apply text-sm text-center min-h-5;
+	}
+
+	#friendsList {
+		@apply w-full max-w-2xl mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+	}
+
+	.friend-card {
+		@apply card flex flex-col items-center gap-4;
+	}
+
+	.friend-card img {
+		@apply w-20 h-20 rounded-full object-cover;
+	}
+
+	.friend-alias {
+		@apply text-lg font-semibold text-white text-center break-words;
+	}
+
+	.online-dot {
+		@apply text-2xl;
+	}
+
+	.remove-btn {
+		@apply btn btn-danger w-full;
+	}
+}
+
+/* =========================================
+   UTILITIES / ANIMATIONS
+   ========================================= */
+@keyframes fadeIn {
+	from {
+		@apply opacity-0 scale-95;
+	}
+
+	to {
+		@apply opacity-100 scale-100;
+	}
+}
